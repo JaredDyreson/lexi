@@ -1,15 +1,15 @@
-objects = lex.o count_words.o
-OUTPUT = lex
+objects = lexi.o sentence_t.o
+OUTPUT = lexi
 COMPILER = clang
 
 all: lex run
 
 lex: $(objects)
 	$(COMPILER) $(objects) -o $(OUTPUT)
-lex.o: lex.c
-	$(COMPILER) -c lex.c
-count_words.o: src/count_words.c includes/count_words.h
-	$(COMPILER) -c src/count_words.c
+lexi.o: lexi.c
+	$(COMPILER) -c lexi.c
+sentence_t.o: src/sentence_t.c includes/sentence_t.h
+	$(COMPILER) -c src/sentence_t.c
 run:
 	./$(OUTPUT)
 clean: clean_objects
